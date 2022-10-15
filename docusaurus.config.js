@@ -112,8 +112,12 @@ const config = {
             title: 'Docs',
             items: [
               {
-                label: '文档',
-                to: '/docs/开始',
+                label: '安装文档',
+                to: '/install/概览',
+              },
+              {
+                label: '开发文档',
+                to: '/dev/简介',
               },
             ],
           },
