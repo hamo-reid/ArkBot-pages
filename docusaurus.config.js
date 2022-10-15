@@ -8,16 +8,16 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 const config = {
   title: 'ArkBot开发文档',
   // tagline: 'Dinosaurs are cool',
-  url: 'https://your-docusaurus-test-site.com',
-  baseUrl: '/',
+  url: 'http://hamo.club',
+  baseUrl: '/ArkBot-pages/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'facebook', // Usually your GitHub org/user name.
-  projectName: 'docusaurus', // Usually your repo name.
+  organizationName: 'hamo-reid', // Usually your GitHub org/user name.
+  projectName: 'ArkBot-pages', // Usually your repo name.
 
   // Even if you don't use internalization, you can use this field to set useful
   // metadata like html lang. For example, if your site is Chinese, you may want
@@ -33,23 +33,39 @@ const config = {
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
         docs: {
+          path: 'docs-install',
+          routeBasePath: 'install',
           sidebarPath: require.resolve('./sidebars.js'),
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+          // editUrl:
+          //   'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
         },
-        blog: {
-          showReadingTime: true,
+        blog: false,
+        // {
+          // showReadingTime: true,
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
-        },
+          // editUrl:
+          //   'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+        // },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
         },
       }),
+    ],
+  ],
+
+  plugins: [
+    [
+      '@docusaurus/plugin-content-docs',
+      {
+        id: 'dev',
+        path: 'docs-dev',
+        routeBasePath: 'dev',
+        sidebarPath: require.resolve('./sidebars.js'),
+        // ……其他选项
+      },
     ],
   ],
 
@@ -65,10 +81,23 @@ const config = {
         items: [
           {
             type: 'doc',
-            docId: '开始',
+            docId: '概览',
             position: 'left',
-            label: '文档',
+            label: '安装文档',
           },
+          {
+            type: 'doc',
+            docId: '简介',
+            docsPluginId: 'dev',
+            position: 'left',
+            label: '开发文档',
+          },
+          // {
+          //   type: 'doc',
+          //   docId: '项目结构/测试',
+          //   position: 'left',
+          //   label: '开发文档',
+          // },
           {
             href: 'https://github.com/hamo-reid/ArkBot',
             label: 'GitHub',
